@@ -1,6 +1,6 @@
 package com.base.test;
 
-import com.base.array.Array;
+import com.base.Array;
 import org.junit.Assert;
 import org.junit.Test;
 
