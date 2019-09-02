@@ -81,6 +81,7 @@ public class Array {
        return array[index];
     }
 
+    //测试
     public static void main(String[] args){
         Array array = new Array(10);
         array.insert(3,0);
