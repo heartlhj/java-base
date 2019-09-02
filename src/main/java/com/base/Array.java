@@ -85,6 +85,7 @@ public class Array {
     public static void main(String[] args){
         Array array = new Array(10);
         array.insert(3,0);
+        //插入
         array.insert(2,1);
         array.insert(5,2);
         array.insert(6,3);
