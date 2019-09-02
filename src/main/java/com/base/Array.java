@@ -86,8 +86,8 @@ public class Array {
         Array array = new Array(10);
         //插入数据
         array.insert(3,0);
-        //插入第一行
-        array.insert(4,1);
+        //插入第二行
+        array.insert(1,1);
         array.insert(5,2);
         array.insert(6,3);
         array.insert(7,1);
