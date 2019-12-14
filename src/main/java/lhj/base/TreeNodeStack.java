@@ -1,6 +1,6 @@
-package com.base;
+package lhj.base;
 
-import com.base.util.Node;
+import lhj.base.util.Node;
 
 import java.util.LinkedList;
 

@@ -1,4 +1,4 @@
-package com.base.util;
+package lhj.base.util;
 
 import java.util.LinkedList;
 

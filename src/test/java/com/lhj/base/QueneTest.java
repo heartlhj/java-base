@@ -1,6 +1,6 @@
-package com.base.test;
+package com.lhj.base;
 
-import com.base.Queue;
+import lhj.base.Queue;
 import org.junit.Assert;
 import org.junit.Test;
 

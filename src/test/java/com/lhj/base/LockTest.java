@@ -1,4 +1,4 @@
-package com.base.test;
+package com.lhj.base;
 
 import java.util.concurrent.locks.ReentrantLock;
 

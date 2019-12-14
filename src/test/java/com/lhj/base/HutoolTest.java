@@ -1,4 +1,4 @@
-package com.base.test;
+package com.lhj.base;
 
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.system.JavaInfo;

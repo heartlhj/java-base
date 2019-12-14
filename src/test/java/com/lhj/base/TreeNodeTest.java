@@ -1,7 +1,7 @@
-package com.base.test;
+package com.lhj.base;
 
-import com.base.TreeNode;
-import com.base.util.Node;
+import lhj.base.TreeNode;
+import lhj.base.util.Node;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
