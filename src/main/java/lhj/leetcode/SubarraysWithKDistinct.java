@@ -1,7 +1,9 @@
 package lhj.leetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -20,42 +22,58 @@ public class SubarraysWithKDistinct {
      * @param K
      * @return
      */
-    public static int subarraysWithKDistinct(int[] A, int K) {
-        if(A.length < K){
-            return 0;
+    public int subarraysWithKDistinct(int[] A, int K) {
+        Window window1 = new Window();
+        Window window2 = new Window();
+        int ans = 0, left1 = 0, left2 = 0;
+        for (int right = 0; right < A.length; right++) {
+            int x = A[right];
+            window1.add(x);
+            window2.add(x);
+            // 让window1左指针移动,直到等于K
+            while (window1.different() > K) {
+                window1.remove(A[left1]);
+                left1++;
+            }
+            // 让window2左指针移动,直到恰好小于K
+            while (window2.different() >= K) {
+                window2.remove(A[left2]);
+                left2++;
+            }
+            // window2恰好少一个，window1恰好等于K
+            // 这时所有以left2为结尾的子数组，都是符合要求的
+            ans += left2 - left1;
         }
-        for (int i = 0; i < A.length - K +1; i++) {
-            sumCount(A,i,K,K);
-        }
-        return count;
+        return ans;
     }
 
-    private static void sumCount(int[] a, int i, int k,int l) {
-        if(i+l > a.length){
-            return;
-        }
-        int t =i;
-        List<Integer> list = new ArrayList<>();
+    class Window {
+        Map<Integer, Integer> count;
+        int nonzero;
 
-        for (int i1 = 0; i1 < l; i1++) {
-            if (t < a.length) {
-                list.add(a[t]);
-                t++;
+        Window() {
+            count = new HashMap();
+            nonzero = 0;
+        }
+
+        void add(int x) {
+            count.put(x, count.getOrDefault(x, 0) + 1);
+            if (count.get(x) == 1){
+                nonzero++;
             }
+
         }
-        List<Integer> collect = list.stream().distinct().collect(Collectors.toList());
-        if(collect.size() <= k ){
-            if(collect.size() == k){
-                count++;
+
+        void remove(int x) {
+            count.put(x, count.get(x) - 1);
+            if (count.get(x) == 0){
+                nonzero--;
             }
-            sumCount(a,i,k,l+1);
+
         }
 
-    }
-    static int count = 0;
-
-    public static void main(String[] args) {
-        int[] arr = new int[]{1,2,1,3,4};
-        subarraysWithKDistinct(arr,3);
+        int different() {
+            return nonzero;
+        }
     }
 }
