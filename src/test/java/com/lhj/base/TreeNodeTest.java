@@ -26,7 +26,7 @@ public class TreeNodeTest {
     @Before
     public void before(){
         inputList = new LinkedList<Integer>(Arrays.asList(
-                new Integer[]{1,2,4,null,null,5,null,null,3,null,6,null}));
+                new Integer[]{1,3,null,4,null,null,2,null,9}));
         node = Node.createTreeNode(inputList);
     }
     @Test
